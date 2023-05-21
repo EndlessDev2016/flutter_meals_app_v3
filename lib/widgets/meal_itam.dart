@@ -53,12 +53,17 @@ class MealItem extends StatelessWidget {
         onTap: () => onSelectetMeal(meal),
         child: Stack(
           children: [
-            FadeInImage(
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
+            // Hero is used to create a transition between two screens.
+            // Heroは、2つの画面間のトランジションを作成するために使用されます。
+            Hero(
+              tag: meal.id,
+              child: FadeInImage(
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
+                fit: BoxFit.cover,
+                height: 200,
+                width: double.infinity,
+              ),
             ),
             // Positioned is used to position the child relative to the parent.
             // Positionedとは、親に対して子を配置するために使用されます。
